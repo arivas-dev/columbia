@@ -1,0 +1,66 @@
+{
+  "countries": [
+    {
+      "id": "GT",
+      "name": "Guatemala",
+      "activities": []
+    },
+    {
+      "id": "SV",
+      "name": "El Salvador",
+      "activities": [
+        {
+          "id": "trail-running-lab-sv",
+          "title": "Trail Running Lab",
+          "date": "Octubre 5",
+          "image": "act3.jpg",
+          "description": "Laboratorio de trail running en El Salvador"
+        },
+        {
+          "id": "trail-camp-sv",
+          "title": "Trail Camp",
+          "date": "Octubre 26",
+          "image": "act2.png",
+          "description": "Campamento de trail en El Salvador"
+        },
+        {
+          "id": "trail-experience-sv",
+          "title": "The Trail Experience",
+          "date": "Noviembre 15",
+          "image": "act1.jpg",
+          "description": "Experiencia de trail en El Salvador"
+        }
+      ]
+    },
+    {
+      "id": "HN",
+      "name": "Honduras",
+      "activities": []
+    },
+    {
+      "id": "NI",
+      "name": "Nicaragua",
+      "activities": []
+    },
+    {
+      "id": "CR",
+      "name": "Costa Rica",
+      "activities": []
+    },
+    {
+      "id": "PA",
+      "name": "Panamá",
+      "activities": []
+    },
+    {
+      "id": "DO",
+      "name": "República Dominicana",
+      "activities": []
+    },
+    {
+      "id": "VE",
+      "name": "Venezuela",
+      "activities": []
+    }
+  ]
+} 
