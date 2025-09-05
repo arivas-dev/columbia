@@ -3,6 +3,7 @@ import LandingPage from './pages/LandingPage'
 import Home from './pages/Home'
 import Information from './pages/Information'
 import Technologies from './pages/Technologies'
+import Activities from './pages/Activities'
 
 function App()  {
   return (
@@ -12,6 +13,7 @@ function App()  {
         <Route path="/home" element={<Home />} />
         <Route path="/information" element={<Information />} />
         <Route path="/technologies" element={<Technologies />} />
+        <Route path="/activities" element={<Activities />} />
       </Routes>
     </div>
   )
