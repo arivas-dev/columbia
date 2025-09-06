@@ -14,8 +14,7 @@ const imageMap = {
 function Activities() {
     return (
         <>
-            <Navigation />
-            <div className="relative h-full lg:h-screen bg-white flex flex-col justify-end">
+            <div className="relative h-full w-full bg-white flex flex-col justify-end">
                 {/* Main Content */}
                 <div className="flex flex-col items-center justify-center h-full mt-20 md:pb-14 md:mt-0 lg:mt-0 xl:mt-30 2xl:mt-10">
                     {/* Main Title */}

@@ -6,9 +6,7 @@ import omniMax from '../assets/omnimax-logo.png'
 
 function Technologies() {
   return (
-    <div className="relative h-screen bg-white">
-      {/* Navbar */}
-      <Navigation />
+    <div className="relative h-full w-full bg-white">
 
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row h-full">

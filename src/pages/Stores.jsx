@@ -1,8 +1,8 @@
 import Navigation from '../components/Navigation'
 import logo from '../assets/columbia-white.png'
 function Stores() {
-  return (
-    <div className="relative h-screen bg-gray-900 overflow-hidden">
+  return (  
+    <div className="relative h-full w-full bg-gray-900 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -14,9 +14,6 @@ function Stores() {
       
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50" />
-      
-      {/* Navigation */}
-      <Navigation />
       
       {/* Main Content - Ajustado para que quepa todo */}
       <div className="relative z-10 h-full flex flex-col justify-between px-4 py-20">

@@ -4,10 +4,7 @@ import image2Section from '../assets/image-2-section.jpg'
 
 function Information() {
   return (
-    <div className="relative h-screen bg-white">
-      {/* Navbar */}
-      <Navigation />
-
+    <div className="relative h-full w-full bg-white">
       {/* Main Content */}
       <div className="flex h-full">
           {/* Left Section - Trail Runner Image and Text */}

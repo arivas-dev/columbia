@@ -4,17 +4,13 @@ import bannerHome from '../assets/banner-home.jpg'
 
 function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative h-full w-full">
       {/* Imagen de fondo */}
       <img
         src={bannerHome}
         alt="Columbia Trail Runner"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
-
-      {/* Navbar */}
-      <Navigation />
-
       {/* Play Button - Center */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <button className="bg-white/20 backdrop-blur-sm rounded-full p-6 hover:bg-white/30 transition-colors">
