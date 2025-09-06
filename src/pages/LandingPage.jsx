@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo'
 import { useCountry } from '../hooks/useCountry'
 import activitiesData from '../data/activities.json'
+import columbia from '../assets/columbia-white.png'
 
 function LandingPage() {
   const navigate = useNavigate()
@@ -30,7 +31,6 @@ function LandingPage() {
   const handleCountrySelect = (country) => {
     selectCountry(country)
     setIsDropdownOpen(false)
-    // La redirección se maneja en el useEffect
   }
 
   return (
@@ -42,35 +42,40 @@ function LandingPage() {
         className="absolute inset-0 w-full h-full object-cover object-center z-10"
       />
 
-      {/* Logo (único elemento con posición absoluta) */}
-      <div className="absolute top-8 left-8 z-20">
-        <div className="flex items-center space-x-4">
-          <Logo className="text-white w-md" />
+      {/* Logo */}
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-8 z-20">
+        <div className="flex items-center">
+          <img 
+            src={columbia} 
+            alt="Columbia" 
+            className="w-60 h-auto sm:w-100 sm:h-auto lg:w-100 lg:h-auto xl:w-100   xl:h-auto" 
+          />
         </div>
       </div>
 
-      {/* Contenedor principal en flex (ocupa toda la pantalla) */}
-      <div className="flex flex-col justify-between h-screen px-20 py-8 pt-20 relative z-20">
-        {/* Top bar (Dropdown alineado a la derecha) */}
-        <div className="flex justify-end">
-          <div className="relative flex justify-center">
+      {/* Contenedor principal */}
+      <div className="relative z-20 h-screen flex flex-col sm:flex-col lg:flex-col">
+        {/* Top bar - Dropdown */}
+        <div className="flex justify-end p-4 sm:p-6 lg:p-8">
+          <div className="relative">
             <button 
-              className="bg-white min-w-56 text-black px-8 py-1 rounded-full text-base font-bold hover:bg-gray-50 transition-colors border border-black"
+              className="bg-white text-black px-3 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm lg:text-base font-bold hover:bg-gray-50 transition-colors border border-black whitespace-nowrap"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Selecciona tu país
-              <svg className="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="hidden sm:inline">Selecciona tu país</span>
+              <span className="sm:hidden">País</span>
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 inline-block ml-1 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
             {/* Dropdown Menu */}
             {isDropdownOpen && (
-              <div className="absolute top-12 bg-black rounded-lg shadow-lg min-w-56 lg:min-w-64 py-2 z-30">
+              <div className="absolute top-10 sm:top-16 right-0 bg-black rounded-lg shadow-lg min-w-40 sm:min-w-48 lg:min-w-56 py-2 z-30">
                 {orderedCountries.map((country) => (
                   <div
                     key={country.id}
-                    className={`px-2 text-center py-2 text-white font-semibold text-base cursor-pointer hover:bg-[#4d4d4d] rounded-md mx-2`}
+                    className="px-3 py-2 text-white text-center font-semibold text-xs sm:text-sm lg:text-base cursor-pointer hover:bg-[#4d4d4d] rounded-md mx-2"
                     onClick={() => handleCountrySelect(country)}
                   >
                     {country.name}
@@ -81,11 +86,15 @@ function LandingPage() {
           </div>
         </div>
 
-        {/* Slogan en parte inferior izquierda */}
-        <div className="text-white font-extrabold text-6xl md:text-7xl lg:text-7xl">
-          <div>SHOES THAT</div>
-          <div>GIVE THE TRAIL</div>
-          <div>BLISTERS</div>
+        {/* Slogan - Centrado en móvil, izquierda abajo en desktop */}
+        <div className="flex-1 flex items-center justify-center sm:items-end sm:justify-start px-4 sm:px-8 lg:px-20 pb-8 sm:pb-8 lg:pb-8">
+          <div className="text-white font-extrabold text-center sm:text-left">
+            <div className="text-6xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+              <div>SHOES THAT</div>
+              <div>GIVE THE TRAIL</div>
+              <div>BLISTERS</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

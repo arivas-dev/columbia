@@ -6,6 +6,7 @@ import Technologies from './pages/Technologies'
 import Activities from './pages/Activities'
 import ProtectedRoute from './components/ProtectedRoute'
 import Information from './pages/Information'
+import Stores from './pages/Stores'
 
 function App() {
   return (
@@ -33,6 +34,11 @@ function App() {
         <Route path="/information" element={
           <ProtectedRoute>
             <Information />
+          </ProtectedRoute>
+        } />
+        <Route path="/stores" element={
+          <ProtectedRoute>
+            <Stores />
           </ProtectedRoute>
         } />
       </Routes>

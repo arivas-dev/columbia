@@ -54,9 +54,9 @@ function Navigation() {
             <Link to="/activities" className={`px-3 py-2 text-sm font-medium ${isActive('/activities') ? 'underline' : ''}  `}>
               Actividades
             </Link>
-            <a href="#" className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
+            <Link to="/stores" className={`px-3 py-2 text-sm font-medium ${isActive('/stores') ? 'underline' : ''}`}>
               Tiendas
-            </a>
+            </Link>
             <span>|</span>
             <a href="#" className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
               Compra en Línea
