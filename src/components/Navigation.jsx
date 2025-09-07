@@ -1,12 +1,32 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import Logo from './Logo'
 
-function Navigation() {
-  const location = useLocation()
+function Navigation({ activeSection }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const isActive = (path) => location.pathname === path
+  const isActive = (sectionId) => activeSection === sectionId
+
+  const scrollToSection = (sectionId) => {
+    const sectionMap = {
+      'home': 1,
+      'information': 2,
+      'technologies': 3,
+      'activities': 4,
+      'stores': 5
+    }
+    
+    const sectionIndex = sectionMap[sectionId]
+    if (sectionIndex !== undefined) {
+      const container = document.querySelector('.snap-container')
+      if (container) {
+        const sectionHeight = window.innerHeight
+        container.scrollTo({
+          top: sectionHeight * sectionIndex,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
 
   return (
     <nav className="absolute top-4 left-4 right-4 z-20 bg-white/50 backdrop-blur-sm shadow-2xl rounded-lg text-black">
@@ -42,23 +62,38 @@ function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/home" className={`px-3 py-2 text-sm font-medium rounded-md ${isActive('/home') ? 'underline' : ''}`}>
+            <button 
+              onClick={() => scrollToSection('home')}
+              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${isActive('home') ? 'underline' : ''}`}
+            >
               Inicio
-            </Link>
-            <Link to="/information" className={`px-3 py-2 text-sm font-medium ${isActive('/information') ? 'underline' : ''}`}>
+            </button>
+            <button 
+              onClick={() => scrollToSection('information')}
+              className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('information') ? 'underline' : ''}`}
+            >
               Información
-            </Link>
-            <Link to="/technologies" className={`px-3 py-2 text-sm font-medium ${isActive('/technologies') ? 'underline' : ''}`}>
+            </button>
+            <button 
+              onClick={() => scrollToSection('technologies')}
+              className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('technologies') ? 'underline' : ''}`}
+            >
               Tecnologías
-            </Link>
-            <Link to="/activities" className={`px-3 py-2 text-sm font-medium ${isActive('/activities') ? 'underline' : ''}  `}>
+            </button>
+            <button 
+              onClick={() => scrollToSection('activities')}
+              className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('activities') ? 'underline' : ''}`}
+            >
               Actividades
-            </Link>
-            <Link to="/stores" className={`px-3 py-2 text-sm font-medium ${isActive('/stores') ? 'underline' : ''}`}>
+            </button>
+            <button 
+              onClick={() => scrollToSection('stores')}
+              className={`px-3 py-2 text-sm font-medium transition-colors ${isActive('stores') ? 'underline' : ''}`}
+            >
               Tiendas
-            </Link>
+            </button>
             <span>|</span>
-            <a href="#" className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
+            <a href="#" className="px-3 py-2 text-sm font-medium hover:text-blue-600 transition-colors">
               Compra en Línea
             </a>
           </div>
@@ -67,23 +102,38 @@ function Navigation() {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="mt-4 flex flex-col space-y-2 lg:hidden">
-            <Link to="/home" onClick={() => setMenuOpen(false)} className={`px-3 py-2 text-sm font-medium ${isActive('/home') ? 'underline' : ''}`}>
+            <button 
+              onClick={() => { scrollToSection('home'); setMenuOpen(false); }}
+              className={`px-3 py-2 text-sm font-medium text-left transition-colors ${isActive('home') ? 'underline' : ''}`}
+            >
               Inicio
-            </Link>
-            <Link to="/information" onClick={() => setMenuOpen(false)} className={`px-3 py-2 text-sm font-medium ${isActive('/information') ? 'underline' : ''}`}>
+            </button>
+            <button 
+              onClick={() => { scrollToSection('information'); setMenuOpen(false); }}
+              className={`px-3 py-2 text-sm font-medium text-left transition-colors ${isActive('information') ? 'underline' : ''}`}
+            >
               Información
-            </Link>
-            <Link to="/technologies" onClick={() => setMenuOpen(false)} className={`px-3 py-2 text-sm font-medium ${isActive('/technologies') ? 'underline' : ''}`}>
+            </button>
+            <button 
+              onClick={() => { scrollToSection('technologies'); setMenuOpen(false); }}
+              className={`px-3 py-2 text-sm font-medium text-left transition-colors ${isActive('technologies') ? 'underline' : ''}`}
+            >
               Tecnologías
-            </Link>
-            <Link to="/activities" onClick={() => setMenuOpen(false)} className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
+            </button>
+            <button 
+              onClick={() => { scrollToSection('activities'); setMenuOpen(false); }}
+              className={`px-3 py-2 text-sm font-medium text-left transition-colors ${isActive('activities') ? 'underline' : ''}`}
+            >
               Actividades
-            </Link>
-            <a href="#" onClick={() => setMenuOpen(false)} className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
+            </button>
+            <button 
+              onClick={() => { scrollToSection('stores'); setMenuOpen(false); }}
+                className={`px-3 py-2 text-sm font-medium text-left transition-colors ${isActive('stores') ? 'underline' : ''}`}
+            >
               Tiendas
-            </a>
+            </button>
             <span className="self-center">|</span>
-            <a href="#" onClick={() => setMenuOpen(false)} className="px-3 py-2 text-sm font-medium hover:text-white/80 transition-colors">
+            <a href="#" onClick={() => setMenuOpen(false)} className="px-3 py-2 text-sm font-medium transition-colors">
               Compra en Línea
             </a>
           </div>

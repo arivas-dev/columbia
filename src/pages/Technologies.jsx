@@ -88,7 +88,7 @@ function Technologies() {
 
           {/* Call to Action Button */}
           <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-8">
-            <button className="bg-white text-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm sm:text-base">
+            <button className="bg-white text-black px-4 py-2 sm:px-6 sm:py-3 rounded-full font-medium hover:bg-gray-100 transition-colors text-sm sm:text-base">
               Compra Aquí
             </button>
           </div>

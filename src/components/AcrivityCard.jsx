@@ -1,6 +1,6 @@
-export const ActivityCard = ({ title, date, image }) => {
+export const ActivityCard = ({ title, date, image, onClick }) => {
     return (
-        <div className="bg-white rounded-2xl overflow-hidden shadow-lg relative">
+        <div className="bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer" onClick={onClick}>
             {/* Image Container */}
             <div className="relative">
                 <img
